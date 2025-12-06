@@ -1,0 +1,7 @@
+streamlit
+pandas
+altair
+st-click-detector
+openpyxl
+google-generativeai
+pillow
