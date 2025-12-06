@@ -1,0 +1,301 @@
+Source,Industry,Hygiene_Score,Soul_Score,Primary_Flaw,Critique,Filename
+Looka,Coffee Shop,7,4,Generic_Cliché,Icon is generic; typography is safe. Elevate concept and refine font choice.,Looka_Coffee Shop_08.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Apron icon is generic; typography is harsh. Needs refinement.,Looka_Coffee Shop_20.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is safe. Needs unique visual identity.,Looka_Coffee Shop_21.png
+Looka,Coffee Shop,8,3,Generic_Cliché,Icon is generic. Typography is safe. Lacks coffee shop personality.,Looka_Coffee Shop_09.png
+Looka,Coffee Shop,7,6,Kerning_Issue,Adjust spacing between 'RIVER' and the icon for better visual balance.,Looka_Coffee Shop_23.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is safe. Needs a unique visual narrative.,Looka_Coffee Shop_22.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Looka_Coffee Shop_26.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Elephant is unrelated. Typography is generic. Needs a coffee-centric concept.,Looka_Coffee Shop_27.png
+Looka,Coffee Shop,7,3,Generic_Cliché,Diamond icon is generic. Typography is bland. Needs coffee relevance.,Looka_Coffee Shop_25.png
+Looka,Coffee Shop,7,4,Kerning_Issue,"Kerning is inconsistent. Consider a more unique, custom typeface for impact.",Looka_Coffee Shop_19.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Looka_Coffee Shop_18.png
+Looka,Coffee Shop,8,6,Generic_Cliché,Icon is generic; explore custom typography and a more unique visual metaphor.,Looka_Coffee Shop_30.png
+Looka,Coffee Shop,6,4,Kerning_Issue,Icon and text spacing is awkward; typography is inconsistent and hard to read.,Looka_Coffee Shop_24.png
+Looka,Coffee Shop,7,6,Generic_Cliché,Lighthouse icon is generic; explore custom typography and unique coffee symbolism.,Looka_Coffee Shop_29.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Icon is cliché. Typography is safe. Needs a unique visual narrative.,Looka_Coffee Shop_01.png
+Looka,Coffee Shop,7,6,Kerning_Issue,Kerning is inconsistent; consider a more cohesive typographic pairing.,Looka_Coffee Shop_15.png
+Looka,Coffee Shop,7,4,Generic_Cliché,"Tulip is generic. Typography is blocky, lacks warmth for coffee.",Looka_Coffee Shop_14.png
+Looka,Coffee Shop,6,4,Generic_Cliché,Icon is generic. Typography is safe. Needs a unique visual hook.,Looka_Coffee Shop_28.png
+Looka,Coffee Shop,7,6,Kerning_Issue,"Improve kerning and consider a more unique, legible script font.",Looka_Coffee Shop_16.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Looka_Coffee Shop_02.png
+Looka,Coffee Shop,7,6,Generic_Cliché,Barn icon is cliché; explore unique visual metaphors for coffee roasting.,Looka_Coffee Shop_03.png
+Looka,Coffee Shop,7,4,Generic_Cliché,Crab icon is unrelated. Typography is safe but uninspired. Needs stronger concept.,Looka_Coffee Shop_17.png
+Looka,Coffee Shop,7,5,Kerning_Issue,Kerning is inconsistent; consider custom font or tighter spacing for readability.,Looka_Coffee Shop_13.png
+Looka,Coffee Shop,7,4,Generic_Cliché,"Icon is abstract, but lacks coffee connection. Typography is safe, but uninspired. Needs personality.",Looka_Coffee Shop_07.png
+Looka,Coffee Shop,7,4,Generic_Cliché,"Icon is abstract, but lacks coffee connection. Typography is standard. Needs more soul.",Looka_Coffee Shop_06.png
+Looka,Coffee Shop,7,3,Generic_Cliché,Shamrock is cliché. Typography is bland. Needs a coffee-centric concept.,Looka_Coffee Shop_12.png
+Looka,Coffee Shop,7,6,Generic_Cliché,Icon is generic; typography is safe. Explore unique visual metaphors for 'river' and 'roasters'.,Looka_Coffee Shop_04.png
+Looka,Coffee Shop,7,4,Generic_Cliché,"The script font is hard to read; consider a more legible, yet still unique, typeface.",Looka_Coffee Shop_10.png
+Looka,Coffee Shop,6,4,Generic_Cliché,Icon is generic; typography is standard. Needs a unique visual narrative.,Looka_Coffee Shop_11.png
+Looka,Coffee Shop,7,3,Generic_Cliché,Clover icon is generic. Typography is uninspired. Lacks coffee connection.,Looka_Coffee Shop_05.png
+Hue,Software,8,3,Generic_Cliché,"Generic font, lacks visual interest. Needs a unique mark or custom typography.",Hue_Software_02.png
+Hue,Software,7,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Hue_Software_16.png
+Hue,Software,7,2,Generic_Cliché,Script font is illegible for software; lacks technical sophistication and brand relevance.,Hue_Software_17.png
+Hue,Software,8,4,Kerning_Issue,"Kerning is inconsistent; consider a more modern, clean sans-serif for software.",Hue_Software_03.png
+Hue,Software,7,3,Generic_Cliché,Icon is generic. Typography is dated. Lacks software industry relevance and modern appeal.,Hue_Software_29.png
+Hue,Software,7,3,Kerning_Issue,Kerning is inconsistent; consider a more unique typeface for software.,Hue_Software_15.png
+Hue,Software,7,3,Generic_Cliché,Icon is generic. Script font is illegible and unprofessional for software.,Hue_Software_01.png
+Hue,Software,7,4,Generic_Cliché,Icon is generic; explore custom typography and a more unique visual metaphor.,Hue_Software_14.png
+Hue,Software,7,4,Generic_Cliché,Icon is a tired cliché. Typography is generic. Needs a unique concept.,Hue_Software_28.png
+Hue,Software,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Hue_Software_10.png
+Hue,Software,6,2,Generic_Cliché,Icon is irrelevant. Font choice is dated. Needs modern software relevance.,Hue_Software_04.png
+Hue,Software,7,3,Generic_Cliché,"Font choice is too ornate for software; lacks modern, clean aesthetic.",Hue_Software_05.png
+Hue,Software,6,3,Font_Mismatch,Icon is generic; typography is illegible and clashes with software industry.,Hue_Software_11.png
+Hue,Software,7,3,Generic_Cliché,Icon is a cliché; typography is uninspired. Needs a unique concept.,Hue_Software_07.png
+Hue,Software,6,4,Kerning_Issue,Icon and text spacing is awkward; font choice lacks sophistication for software.,Hue_Software_13.png
+Hue,Software,6,3,Font_Mismatch,Icon is generic. Font is illegible and clashes with modern software aesthetic.,Hue_Software_12.png
+Hue,Software,6,4,Generic_Cliché,Icon is generic. Typography is weak. Lacks software industry relevance or innovation.,Hue_Software_06.png
+Hue,Software,6,3,Kerning_Issue,Kerning is inconsistent. Font choice is too playful for software. Refine spacing.,Hue_Software_23.png
+Hue,Software,7,3,Font_Mismatch,"Font choice is too ornate for software; consider a modern, clean sans-serif.",Hue_Software_22.png
+Hue,Software,7,3,Font_Mismatch,"Font choice is playful, not professional for software. Refine typography for industry relevance.",Hue_Software_08.png
+Hue,Software,7,3,Generic_Cliché,Generic sans-serif in a box. Lacks unique visual identity for software.,Hue_Software_20.png
+Hue,Software,6,3,Font_Mismatch,Icon is generic. Script font is inappropriate for software. Improve spacing and legibility.,Hue_Software_21.png
+Hue,Software,3,2,Font_Mismatch,Script font is illegible and clashes with modern software industry.,Hue_Software_09.png
+Hue,Software,8,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality. Needs refinement.,Hue_Software_25.png
+Hue,Software,7,3,Generic_Cliché,Cloud icon is generic. Typography lacks sophistication. Needs a unique visual identity.,Hue_Software_19.png
+Hue,Software,7,3,Font_Mismatch,Font choice clashes with modern software; icon is generic. Rethink both.,Hue_Software_18.png
+Hue,Software,6,2,Font_Mismatch,"Font choice is playful, not professional. Lacks software industry relevance. Refine typography.",Hue_Software_24.png
+Hue,Software,7,4,Generic_Cliché,Icon is a cliché; explore custom typography for a unique identity.,Hue_Software_30.png
+Hue,Software,7,4,Font_Mismatch,Icon is generic. Font choice clashes with modern software aesthetic.,Hue_Software_26.png
+Hue,Software,7,3,Generic_Cliché,Icon is generic. Typography is weak. Lacks a unique software industry connection.,Hue_Software_27.png
+Hue,Construction,7,3,Font_Mismatch,"Script font is inappropriate for construction; consider a bold, stable sans-serif.",Hue_Construction_07.png
+Hue,Construction,7,4,Generic_Cliché,Icon is generic. Typography is safe. Elevate concept and refine typography.,Hue_Construction_13.png
+Hue,Construction,7,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique visual identity.,Hue_Construction_12.png
+Hue,Construction,6,3,Generic_Cliché,"Brick icon is cliché. Typography feels dated. Needs modern, strong identity.",Hue_Construction_06.png
+Hue,Construction,3,2,Kerning_Issue,Font choice is illegible and unprofessional. Spacing is inconsistent and awkward. Redesign.,Hue_Construction_10.png
+Hue,Construction,6,2,Generic_Cliché,Font choice is weak; lacks construction industry gravitas. Needs stronger visual identity.,Hue_Construction_04.png
+Hue,Construction,6,3,Kerning_Issue,Kerning is inconsistent. Font choice is weak. Lacks visual interest.,Hue_Construction_05.png
+Hue,Construction,7,2,Generic_Cliché,Font choice is inappropriate; lacks strength and professionalism for construction.,Hue_Construction_11.png
+Hue,Construction,7,4,Font_Mismatch,"Icon is strong. Typography is weak. Needs a bolder, more robust font.",Hue_Construction_15.png
+Hue,Construction,7,4,Generic_Cliché,"Icon is a generic step; explore stronger, unique construction metaphors. Refine typography.",Hue_Construction_01.png
+Hue,Construction,7,4,Generic_Cliché,"Icon is generic. Typography is weak. Needs stronger, custom identity.",Hue_Construction_29.png
+Hue,Construction,7,3,Generic_Cliché,Icon is generic; typography is safe. Needs stronger concept and custom type.,Hue_Construction_28.png
+Hue,Construction,6,4,Generic_Cliché,"Tractor icon is generic. Typography is uninspired. Needs a stronger, unique visual identity.",Hue_Construction_14.png
+Hue,Construction,6,3,Generic_Cliché,Icon and font are generic; elevate with custom design and unique visual metaphor.,Hue_Construction_02.png
+Hue,Construction,7,3,Font_Mismatch,"Gothic font is inappropriate for modern construction; consider a robust, clean sans-serif.",Hue_Construction_16.png
+Hue,Construction,7,4,Kerning_Issue,"Kerning is inconsistent; consider a more robust, custom typeface for impact.",Hue_Construction_17.png
+Hue,Construction,7,4,Generic_Cliché,Icon is generic. Typography is bland. Needs stronger concept and custom execution.,Hue_Construction_03.png
+Hue,Construction,7,4,Kerning_Issue,"Kerning is inconsistent; consider a more robust, custom typeface for impact.",Hue_Construction_26.png
+Hue,Construction,7,4,Generic_Cliché,Icon is generic. Typography is basic. Needs a unique visual identity.,Hue_Construction_27.png
+Hue,Construction,6,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Hue_Construction_19.png
+Hue,Construction,7,3,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Hue_Construction_25.png
+Hue,Construction,7,3,Generic_Cliché,Icon is generic. Typography lacks impact. Needs stronger concept and custom execution.,Hue_Construction_24.png
+Hue,Construction,7,3,Generic_Cliché,"Icon is generic. Typography is uninspired. Lacks a strong, unique visual identity.",Hue_Construction_30.png
+Hue,Construction,6,4,Kerning_Issue,"Font choice is weak; kerning is inconsistent, making text hard to read.",Hue_Construction_18.png
+Hue,Construction,7,4,Generic_Cliché,Icon is a cliché; typography is bland. Needs stronger concept and custom type.,Hue_Construction_20.png
+Hue,Construction,7,3,Generic_Cliché,"The script font is inappropriate for construction; consider a robust, custom sans-serif.",Hue_Construction_08.png
+Hue,Construction,6,3,Font_Mismatch,Gothic font clashes with construction; icon is generic. Rethink typography and icon.,Hue_Construction_09.png
+Hue,Construction,6,3,Kerning_Issue,Kerning is uneven. Font choice is weak. Lacks construction industry relevance.,Hue_Construction_21.png
+Hue,Construction,7,3,Font_Mismatch,"Script font is inappropriate for construction; consider a robust, legible sans-serif.",Hue_Construction_23.png
+Hue,Construction,7,3,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Hue_Construction_22.png
+Hue,Coffee Shop,7,5,Generic_Cliché,Icon is generic; typography is safe but uninspired. Elevate concept and font.,Hue_Coffee Shop_19.png
+Hue,Coffee Shop,7,3,Generic_Cliché,Font choice is bland. Lacks visual interest and coffee-related symbolism.,Hue_Coffee Shop_25.png
+Hue,Coffee Shop,6,4,Kerning_Issue,Custom font is illegible; kerning is inconsistent. Needs refinement for clarity.,Hue_Coffee Shop_24.png
+Hue,Coffee Shop,7,4,Generic_Cliché,Font is generic; explore custom typography with a stronger coffee connection.,Hue_Coffee Shop_30.png
+Hue,Coffee Shop,7,4,Generic_Cliché,"Icon is tea, not coffee. Typography is dated. Needs a complete refresh.",Hue_Coffee Shop_18.png
+Hue,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is dated. Needs modern refinement and unique visual identity.,Hue_Coffee Shop_26.png
+Hue,Coffee Shop,7,4,Kerning_Issue,Improve font choice and letter spacing for better readability and visual appeal.,Hue_Coffee Shop_27.png
+Hue,Coffee Shop,7,4,Kerning_Issue,"Kerning is inconsistent; consider a more unique, custom typeface for soul.",Hue_Coffee Shop_23.png
+Hue,Coffee Shop,7,6,Kerning_Issue,Adjust letter spacing for 'River' and 'Roasters' for better readability.,Hue_Coffee Shop_22.png
+Hue,Coffee Shop,7,4,Generic_Cliché,"Font choice is safe, but lacks personality. Consider custom typography for impact.",Hue_Coffee Shop_20.png
+Hue,Coffee Shop,7,3,Generic_Cliché,"Generic font, uninspired shape. Lacks coffee connection. Needs personality.",Hue_Coffee Shop_08.png
+Hue,Coffee Shop,7,3,Generic_Cliché,Font is too playful; lacks sophistication for a coffee roaster brand.,Hue_Coffee Shop_09.png
+Hue,Coffee Shop,7,6,Kerning_Issue,Icon is decent. Typography needs spacing adjustment and a more unique typeface.,Hue_Coffee Shop_21.png
+Hue,Coffee Shop,7,4,Generic_Cliché,"Generic shape, dated font. Needs unique icon and modern typography.",Hue_Coffee Shop_10.png
+Hue,Coffee Shop,7,3,Generic_Cliché,Font choice is generic. Explore custom typography and a unique coffee-related visual.,Hue_Coffee Shop_04.png
+Hue,Coffee Shop,8,4,Generic_Cliché,"Elegant font, but the name and style lack a unique coffee-centric visual hook.",Hue_Coffee Shop_05.png
+Hue,Coffee Shop,7,4,Kerning_Issue,"Kerning is inconsistent; consider a more evocative, custom typeface.",Hue_Coffee Shop_11.png
+Hue,Coffee Shop,7,3,Generic_Cliché,Font choice is weak. Lacks visual interest and coffee connection. Needs refinement.,Hue_Coffee Shop_07.png
+Hue,Coffee Shop,7,4,Kerning_Issue,Kerning is inconsistent; consider a more unique font for stronger brand identity.,Hue_Coffee Shop_13.png
+Hue,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is bland. Needs unique visual identity.,Hue_Coffee Shop_12.png
+Hue,Coffee Shop,7,6,Generic_Cliché,Icon is generic; typography is weak. Needs stronger concept and refined font.,Hue_Coffee Shop_06.png
+Hue,Coffee Shop,7,4,Generic_Cliché,Icon and font are generic; elevate concept and explore custom typography.,Hue_Coffee Shop_02.png
+Hue,Coffee Shop,7,6,Kerning_Issue,Icon and text spacing needs refinement; typography is a bit too casual.,Hue_Coffee Shop_16.png
+Hue,Coffee Shop,7,6,Kerning_Issue,Kerning is inconsistent; refine letter spacing for visual harmony and readability.,Hue_Coffee Shop_17.png
+Hue,Coffee Shop,7,3,Generic_Cliché,Font choice is generic. Consider custom typography with a stronger coffee connection.,Hue_Coffee Shop_03.png
+Hue,Coffee Shop,8,5,Generic_Cliché,"Font choice is safe, but lacks a unique coffee-centric visual narrative.",Hue_Coffee Shop_15.png
+Hue,Coffee Shop,6,4,Generic_Cliché,The coffee ring is a tired cliché; explore a more unique visual metaphor.,Hue_Coffee Shop_01.png
+Hue,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is safe. Needs unique visual identity.,Hue_Coffee Shop_29.png
+Hue,Coffee Shop,7,4,Kerning_Issue,Kerning is inconsistent. Consider a more evocative typeface and a coffee-related icon.,Hue_Coffee Shop_28.png
+Hue,Coffee Shop,7,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Hue_Coffee Shop_14.png
+Looka,Construction,7,4,Generic_Cliché,Icon is cliché. Typography is standard. Lacks unique brand personality.,Looka_Construction_25.png
+Looka,Construction,6,3,Generic_Cliché,Icon is generic. Script font is illegible for construction. Improve legibility and relevance.,Looka_Construction_19.png
+Looka,Construction,6,3,Generic_Cliché,Icon and font are generic. Improve visual hierarchy and uniqueness for impact.,Looka_Construction_18.png
+Looka,Construction,7,4,Generic_Cliché,"Icon is a wood grain, too literal. Typography is standard. Needs more originality.",Looka_Construction_24.png
+Looka,Construction,7,4,Generic_Cliché,Icon is a cliché. Typography is inconsistent. Needs refinement for impact.,Looka_Construction_30.png
+Looka,Construction,6,4,Generic_Cliché,Icon is generic. Typography is bland. Needs stronger concept and custom type.,Looka_Construction_26.png
+Looka,Construction,7,3,Generic_Cliché,"Icon is a cliché; typography is uninspired. Needs a stronger, unique concept.",Looka_Construction_27.png
+Looka,Construction,7,4,Generic_Cliché,Icon is a cliché; typography is standard. Needs unique visual identity.,Looka_Construction_23.png
+Looka,Construction,7,4,Generic_Cliché,Icon is a cliché. Typography is weak. Needs stronger concept and custom type.,Looka_Construction_22.png
+Looka,Construction,6,3,Generic_Cliché,Icon is generic. Typography is weak. Lacks construction industry gravitas.,Looka_Construction_08.png
+Looka,Construction,7,4,Generic_Cliché,Icon is generic. Typography is standard. Elevate concept and custom type.,Looka_Construction_20.png
+Looka,Construction,7,3,Generic_Cliché,Logo lacks visual interest; consider custom typography and a stronger conceptual link.,Looka_Construction_21.png
+Looka,Construction,6,4,Generic_Cliché,Icon is generic. Typography is weak. Needs stronger concept and custom type.,Looka_Construction_09.png
+Looka,Construction,6,3,Generic_Cliché,"Icon is generic. Typography is weak. Needs a stronger, unique visual identity.",Looka_Construction_10.png
+Looka,Construction,6,3,Generic_Cliché,Icon is a generic building; typography lacks impact. Needs stronger concept.,Looka_Construction_04.png
+Looka,Construction,7,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique visual identity.,Looka_Construction_05.png
+Looka,Construction,7,4,Generic_Cliché,Icon is generic. Typography is weak. Needs stronger concept and refined execution.,Looka_Construction_11.png
+Looka,Construction,7,6,Generic_Cliché,Blueprint icon is cliché; explore custom typography for stronger identity.,Looka_Construction_07.png
+Looka,Construction,7,3,Generic_Cliché,Icon is too literal. Typography is bland. Lacks any unique construction metaphor.,Looka_Construction_13.png
+Looka,Construction,7,3,Generic_Cliché,"Font choice is weak; consider a bolder, more robust typeface for construction.",Looka_Construction_12.png
+Looka,Construction,3,2,Kerning_Issue,Font choice is amateurish; kerning is atrocious. Icon is generic. Rethink everything.,Looka_Construction_06.png
+Looka,Construction,7,3,Generic_Cliché,Icon is generic. Typography is weak. Lacks construction industry relevance.,Looka_Construction_02.png
+Looka,Construction,6,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique visual identity.,Looka_Construction_16.png
+Looka,Construction,7,4,Generic_Cliché,Crown is cliché. Typography is bland. Needs stronger construction symbolism.,Looka_Construction_17.png
+Looka,Construction,3,2,Layout_Crash,"Text is too close to the distressed border, impacting legibility and professionalism.",Looka_Construction_03.png
+Looka,Construction,7,3,Generic_Cliché,Icon is generic. Typography clashes with industry. Needs stronger construction symbolism.,Looka_Construction_29.png
+Looka,Construction,3,2,Layout_Crash,"Icon and text are too close, creating a cramped, unprofessional, and illegible presentation.",Looka_Construction_15.png
+Looka,Construction,3,2,Font_Mismatch,Font choice is weak. Icon is generic. Improve spacing and contrast for professionalism.,Looka_Construction_01.png
+Looka,Construction,7,3,Generic_Cliché,Icon is a cliché. Typography is generic. Needs a unique visual identity.,Looka_Construction_14.png
+Looka,Construction,6,3,Generic_Cliché,Icon is generic. Typography is weak. Needs stronger concept and refined execution.,Looka_Construction_28.png
+Hue,Beauty Spa,7,4,Generic_Cliché,"Feather icon is cliché; explore unique, relevant symbolism for wellness.",Hue_Beauty Spa_13.png
+Hue,Beauty Spa,7,6,Generic_Cliché,Icon is generic. Typography lacks polish. Consider custom elements.,Hue_Beauty Spa_07.png
+Hue,Beauty Spa,7,4,Generic_Cliché,Typography is weak. Iconography is absent. Lacks unique brand personality.,Hue_Beauty Spa_06.png
+Hue,Beauty Spa,7,4,Font_Mismatch,"Elegant primary font, but secondary font feels disconnected and generic.",Hue_Beauty Spa_12.png
+Hue,Beauty Spa,7,4,Generic_Cliché,Icon is generic. Typography lacks personality. Elevate to match brand aspiration.,Hue_Beauty Spa_04.png
+Hue,Beauty Spa,7,6,Kerning_Issue,"Kerning is inconsistent; refine spacing for a polished, professional appearance.",Hue_Beauty Spa_10.png
+Hue,Beauty Spa,7,4,Generic_Cliché,Lotus icon and brush script are overused; refine typography for uniqueness.,Hue_Beauty Spa_11.png
+Hue,Beauty Spa,7,6,Generic_Cliché,"Icon is generic. Typography is okay, but lacks distinctiveness. Needs more soul.",Hue_Beauty Spa_05.png
+Hue,Beauty Spa,7,6,Kerning_Issue,Improve script kerning; consider a more unique font pairing for subtext.,Hue_Beauty Spa_01.png
+Hue,Beauty Spa,7,4,Generic_Cliché,"Generic font, lacks visual interest. Elevate typography for a premium feel.",Hue_Beauty Spa_15.png
+Hue,Beauty Spa,7,6,Kerning_Issue,"Improve kerning between 'Luna' and '&', and 'Sol'. Consider custom typography.",Hue_Beauty Spa_29.png
+Hue,Beauty Spa,7,5,Generic_Cliché,Icon is generic. Typography is safe. Elevate concept and refine details.,Hue_Beauty Spa_28.png
+Hue,Beauty Spa,8,4,Generic_Cliché,Typography is safe. Iconography is missing. Elevate concept for unique brand identity.,Hue_Beauty Spa_14.png
+Hue,Beauty Spa,7,4,Generic_Cliché,Icon is generic. Typography lacks personality. Consider custom elements.,Hue_Beauty Spa_16.png
+Hue,Beauty Spa,7,4,Generic_Cliché,Icon is generic; typography lacks polish. Elevate both for brand impact.,Hue_Beauty Spa_02.png
+Hue,Beauty Spa,8,4,Generic_Cliché,Typography is safe. Explore custom fonts and a more unique visual metaphor.,Hue_Beauty Spa_03.png
+Hue,Beauty Spa,7,4,Generic_Cliché,"Typography is safe. Iconography is missing. Brand feels generic, lacks unique visual identity.",Hue_Beauty Spa_17.png
+Hue,Beauty Spa,7,4,Generic_Cliché,Typography is dated. Lacks a unique visual identity for the brand.,Hue_Beauty Spa_26.png
+Hue,Beauty Spa,7,4,Generic_Cliché,Icon and typography are generic; elevate with custom elements and unique concept.,Hue_Beauty Spa_27.png
+Hue,Beauty Spa,7,6,Kerning_Issue,Kerning is inconsistent; consider custom type for a more polished feel.,Hue_Beauty Spa_19.png
+Hue,Beauty Spa,6,4,Generic_Cliché,Icon is generic. Typography is dated. Lacks unique brand personality.,Hue_Beauty Spa_25.png
+Hue,Beauty Spa,7,4,Kerning_Issue,Kerning is inconsistent. Consider custom typography for a more refined aesthetic.,Hue_Beauty Spa_30.png
+Hue,Beauty Spa,7,4,Generic_Cliché,"Generic sans-serif, lacks unique visual identity for 'Luna & Sol'.",Hue_Beauty Spa_24.png
+Hue,Beauty Spa,6,3,Generic_Cliché,Icon is cliché; typography is uninspired. Needs a unique visual identity.,Hue_Beauty Spa_18.png
+Hue,Beauty Spa,7,4,Kerning_Issue,Kerning is inconsistent. Consider custom type or better font pairing for elegance.,Hue_Beauty Spa_20.png
+Hue,Beauty Spa,6,4,Kerning_Issue,"Improve spacing, font pairing, and icon refinement for a polished look.",Hue_Beauty Spa_08.png
+Hue,Beauty Spa,7,4,Kerning_Issue,Kerning is inconsistent; consider custom type or tighter spacing for polish.,Hue_Beauty Spa_09.png
+Hue,Beauty Spa,7,6,Kerning_Issue,"Icon and text spacing is acceptable. Kerning needs refinement, especially around 'G' and 'S'.",Hue_Beauty Spa_21.png
+Hue,Beauty Spa,7,4,Generic_Cliché,Icon is generic; typography lacks distinctiveness. Elevate concept and font choice.,Hue_Beauty Spa_23.png
+Hue,Beauty Spa,7,5,Generic_Cliché,Icon is generic; explore custom typography and unique visual metaphors.,Hue_Beauty Spa_22.png
+Looka,Real Estate,8,4,Generic_Cliché,Diamond icon is cliché; explore unique visual metaphors for 'heritage' and 'properties'.,Looka_Real Estate_26.png
+Looka,Real Estate,8,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Looka_Real Estate_27.png
+Looka,Real Estate,7,3,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Looka_Real Estate_25.png
+Looka,Real Estate,7,5,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality and visual interest.,Looka_Real Estate_19.png
+Looka,Real Estate,7,3,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand connection.,Looka_Real Estate_18.png
+Looka,Real Estate,6,4,Generic_Cliché,Icon is cliché. Typography is dated. Lacks modern real estate appeal.,Looka_Real Estate_30.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Looka_Real Estate_24.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is cliché. Typography is standard. Lacks unique brand personality.,Looka_Real Estate_08.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand storytelling.,Looka_Real Estate_20.png
+Looka,Real Estate,8,3,Generic_Cliché,Logo lacks visual interest; consider a unique icon and custom typography.,Looka_Real Estate_21.png
+Looka,Real Estate,7,4,Generic_Cliché,"Typography is dated. Iconography is absent. Lacks a unique, memorable brand element.",Looka_Real Estate_09.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is cliché. Typography is safe. Lacks unique brand personality.,Looka_Real Estate_23.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is a cliché. Typography is safe. Lacks unique brand personality.,Looka_Real Estate_22.png
+Looka,Real Estate,7,4,Generic_Cliché,"Generic font, lacks visual interest. Needs a unique icon or custom typography.",Looka_Real Estate_13.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is cliché. Typography is standard. Lacks unique brand personality.,Looka_Real Estate_07.png
+Looka,Real Estate,7,3,Generic_Cliché,"Icon is abstract; lacks clear real estate connection. Typography is safe, not distinctive.",Looka_Real Estate_06.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is cliché. Typography is safe. Lacks unique brand personality.,Looka_Real Estate_12.png
+Looka,Real Estate,7,3,Generic_Cliché,Logo lacks visual interest; consider custom typography and a unique icon.,Looka_Real Estate_04.png
+Looka,Real Estate,7,3,Generic_Cliché,Typography is dated. Lacks visual interest and a unique brand story.,Looka_Real Estate_10.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is cliché; typography is uninspired. Needs a unique visual narrative.,Looka_Real Estate_11.png
+Looka,Real Estate,8,3,Generic_Cliché,"Generic sans-serif, no visual metaphor, lacks distinctiveness. Elevate the concept.",Looka_Real Estate_05.png
+Looka,Real Estate,8,4,Generic_Cliché,Icon is generic. Typography is safe. Elevate concept and custom type.,Looka_Real Estate_29.png
+Looka,Real Estate,7,3,Generic_Cliché,"Elegant typography, but lacks a unique visual identity for real estate.",Looka_Real Estate_01.png
+Looka,Real Estate,7,3,Generic_Cliché,"Elegant font choice, but lacks a unique visual identity for real estate.",Looka_Real Estate_15.png
+Looka,Real Estate,7,3,Generic_Cliché,Font choice is dated. Lacks visual interest and a unique brand story.,Looka_Real Estate_14.png
+Looka,Real Estate,7,4,Generic_Cliché,"Icon is generic. Typography lacks cohesion. Needs a stronger, unique visual identity.",Looka_Real Estate_28.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is cliché. Typography is weak. Needs custom mark and better kerning.,Looka_Real Estate_16.png
+Looka,Real Estate,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique visual identity.,Looka_Real Estate_02.png
+Looka,Real Estate,7,4,Generic_Cliché,"Icon is generic. Typography lacks cohesion. Needs a stronger, unique visual identity.",Looka_Real Estate_03.png
+Looka,Real Estate,7,3,Generic_Cliché,Icon is generic. Typography is uninspired. Lacks unique brand personality.,Looka_Real Estate_17.png
+Hue,Real Estate,7,3,Generic_Cliché,Generic font and layout. Lacks visual interest and unique brand storytelling.,Hue_Real Estate_23.png
+Hue,Real Estate,7,3,Generic_Cliché,Font choice is dated. Lacks a unique visual identity for real estate.,Hue_Real Estate_22.png
+Hue,Real Estate,6,3,Generic_Cliché,Icon and typography are generic; elevate concept and refine visual execution.,Hue_Real Estate_20.png
+Hue,Real Estate,7,4,Generic_Cliché,Circle is generic. Typography is safe. Needs a unique visual hook.,Hue_Real Estate_08.png
+Hue,Real Estate,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Hue_Real Estate_09.png
+Hue,Real Estate,8,4,Generic_Cliché,"Typography is clean, but the concept lacks originality and visual interest.",Hue_Real Estate_21.png
+Hue,Real Estate,7,4,Generic_Cliché,Cloud icon is generic. Typography lacks distinctiveness. Needs stronger conceptual link.,Hue_Real Estate_19.png
+Hue,Real Estate,6,3,Generic_Cliché,Icon is a generic dot pattern; typography lacks impact and is poorly kerned.,Hue_Real Estate_25.png
+Hue,Real Estate,7,4,Generic_Cliché,"Typography is dated; consider modernizing for a fresh, professional real estate brand.",Hue_Real Estate_24.png
+Hue,Real Estate,7,5,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Hue_Real Estate_30.png
+Hue,Real Estate,8,3,Generic_Cliché,"Safe, but lacks a unique visual hook. Elevate beyond generic.",Hue_Real Estate_18.png
+Hue,Real Estate,7,4,Generic_Cliché,"Icon is irrelevant. Typography is safe. Needs a stronger, relevant concept.",Hue_Real Estate_26.png
+Hue,Real Estate,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Hue_Real Estate_27.png
+Hue,Real Estate,7,4,Generic_Cliché,Font choice is dated. Lacks visual interest and a unique brand story.,Hue_Real Estate_02.png
+Hue,Real Estate,7,3,Generic_Cliché,"Typography is safe. Consider a more unique mark, less generic.",Hue_Real Estate_16.png
+Hue,Real Estate,7,4,Generic_Cliché,"Script font is hard to read; consider a more legible, classic serif for heritage.",Hue_Real Estate_17.png
+Hue,Real Estate,7,3,Generic_Cliché,"Icon is culturally specific, not universally real estate. Typography is bland. Needs refinement.",Hue_Real Estate_03.png
+Hue,Real Estate,6,3,Generic_Cliché,"Car icon is irrelevant. Typography is dated. Needs a relevant, modern identity.",Hue_Real Estate_15.png
+Hue,Real Estate,8,3,Generic_Cliché,Generic font and layout. Lacks visual interest and brand personality.,Hue_Real Estate_01.png
+Hue,Real Estate,7,3,Generic_Cliché,"Generic sans-serif, lacks visual interest. Needs a unique mark.",Hue_Real Estate_29.png
+Hue,Real Estate,8,4,Generic_Cliché,Icon is generic; explore custom typography and a more unique visual metaphor.,Hue_Real Estate_28.png
+Hue,Real Estate,7,5,Generic_Cliché,Icon is generic; typography is safe but lacks distinctiveness. Elevate concept.,Hue_Real Estate_14.png
+Hue,Real Estate,7,3,Generic_Cliché,"Font choice is playful, but lacks professional gravitas for real estate.",Hue_Real Estate_10.png
+Hue,Real Estate,7,4,Generic_Cliché,Font choice is dated. Lacks a unique visual identity for real estate.,Hue_Real Estate_04.png
+Hue,Real Estate,7,3,Generic_Cliché,Icon is cliché. Typography is bland. Lacks unique brand personality.,Hue_Real Estate_05.png
+Hue,Real Estate,7,6,Generic_Cliché,Icon is cliché; typography is safe but lacks distinctiveness. Elevate the concept.,Hue_Real Estate_11.png
+Hue,Real Estate,7,3,Generic_Cliché,Icon is a cliché. Typography is standard. Lacks unique brand personality.,Hue_Real Estate_07.png
+Hue,Real Estate,7,4,Generic_Cliché,Icon is cliché. Typography is safe. Needs a unique visual identity.,Hue_Real Estate_13.png
+Hue,Real Estate,7,4,Generic_Cliché,"Icon is abstract, but lacks clear real estate connection. Typography is safe, not distinctive.",Hue_Real Estate_12.png
+Hue,Real Estate,7,3,Generic_Cliché,"Icon is generic. Typography is dated. Needs modern, relevant visual identity.",Hue_Real Estate_06.png
+Looka,Software,7,3,Generic_Cliché,Cloud icon is generic. Typography is standard. Lacks unique brand personality.,Looka_Software_02.png
+Looka,Software,6,3,Generic_Cliché,Icon is generic. Typography is weak and lacks professional polish for software.,Looka_Software_16.png
+Looka,Software,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks a unique brand narrative.,Looka_Software_17.png
+Looka,Software,6,3,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Looka_Software_03.png
+Looka,Software,7,4,Generic_Cliché,Icon is generic. Typography lacks polish. Needs stronger conceptual link.,Looka_Software_29.png
+Looka,Software,7,4,Kerning_Issue,Icon is generic. Kerning is inconsistent. Consider custom type and better spacing.,Looka_Software_15.png
+Looka,Software,6,4,Generic_Cliché,Icon is generic. Script font lacks legibility and professionalism for software.,Looka_Software_01.png
+Looka,Software,3,2,Kerning_Issue,Icon and text are too close. Typography is illegible and lacks personality.,Looka_Software_14.png
+Looka,Software,6,3,Generic_Cliché,"Icon is generic. Typography is dated. Needs modern, unique identity.",Looka_Software_28.png
+Looka,Software,7,3,Generic_Cliché,"Generic sans-serif, gradient is dated. Lacks unique visual identity for software.",Looka_Software_10.png
+Looka,Software,7,4,Generic_Cliché,Icon is generic; typography is uninspired. Needs a unique visual concept.,Looka_Software_04.png
+Looka,Software,7,3,Generic_Cliché,Icon is a generic seal; explore custom typography and unique software symbolism.,Looka_Software_05.png
+Looka,Software,7,4,None,Icon and text feel disconnected; consider custom typography for cohesion.,Looka_Software_11.png
+Looka,Software,7,6,Kerning_Issue,"Icon and text spacing is good, but kerning in 'ALIS' is awkward.",Looka_Software_07.png
+Looka,Software,7,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Looka_Software_13.png
+Looka,Software,7,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique visual identity.,Looka_Software_12.png
+Looka,Software,7,4,Generic_Cliché,Icon is generic; typography is standard. Needs a unique visual narrative.,Looka_Software_06.png
+Looka,Software,7,4,Generic_Cliché,Icon is a tired trope; typography is generic. Needs a unique visual voice.,Looka_Software_23.png
+Looka,Software,7,4,Kerning_Issue,Spacing between 'NEX' and the icon is too tight; consider custom typography.,Looka_Software_22.png
+Looka,Software,7,4,Kerning_Issue,"Kerning is inconsistent; the 'A' is too wide, making the word feel unbalanced.",Looka_Software_08.png
+Looka,Software,7,4,Generic_Cliché,Wings are overused. Typography lacks distinctiveness. Explore unique visual metaphors.,Looka_Software_20.png
+Looka,Software,8,6,Generic_Cliché,Icon is generic; explore custom typography for a stronger brand identity.,Looka_Software_21.png
+Looka,Software,7,6,Generic_Cliché,Icon is a tired cliché; typography is generic. Elevate concept and custom type.,Looka_Software_09.png
+Looka,Software,8,6,None,Icon is generic. Typography is safe. Consider custom type and a more unique symbol.,Looka_Software_25.png
+Looka,Software,7,4,Generic_Cliché,Shield icon is generic. Typography is dated. Lacks unique brand personality.,Looka_Software_19.png
+Looka,Software,7,4,Generic_Cliché,Icon is generic; typography is standard. Lacks unique visual narrative for software.,Looka_Software_18.png
+Looka,Software,7,6,Kerning_Issue,Icon and text spacing is awkward; consider custom typography for more impact.,Looka_Software_24.png
+Looka,Software,7,3,Generic_Cliché,Mountain icon is generic. Typography is safe. Lacks unique brand personality.,Looka_Software_30.png
+Looka,Software,3,2,Layout_Crash,"Icon and text are too close, creating a cramped, unprofessional, and illegible presentation.",Looka_Software_26.png
+Looka,Software,8,4,Generic_Cliché,Icon is generic. Typography is standard. Lacks unique brand personality.,Looka_Software_27.png
+Looka,Beauty Spa,7,5,Generic_Cliché,Icon is generic; typography is safe. Elevate concept and refine visual language.,Looka_Beauty Spa_26.png
+Looka,Beauty Spa,7,6,Kerning_Issue,Kerning is inconsistent; consider a more unique icon for better brand recall.,Looka_Beauty Spa_27.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Icon is generic. Typography is safe. Elevate concept and refine visual language.,Looka_Beauty Spa_25.png
+Looka,Beauty Spa,7,5,Generic_Cliché,"Elegant script is fine, but the sans-serif feels disconnected and generic.",Looka_Beauty Spa_19.png
+Looka,Beauty Spa,7,6,Kerning_Issue,Kerning is inconsistent; 'SOL' feels too tight. Improve spacing for elegance.,Looka_Beauty Spa_18.png
+Looka,Beauty Spa,7,4,Generic_Cliché,"Eyelash icon is cliché; consider a more unique, abstract representation of 'Luna & Sol'.",Looka_Beauty Spa_24.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Icon is generic. Typography is safe. Lacks unique brand personality.,Looka_Beauty Spa_30.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Crown is generic. Typography lacks personality. Consider custom elements.,Looka_Beauty Spa_08.png
+Looka,Beauty Spa,7,3,Generic_Cliché,Castle icon is irrelevant. Typography is generic. Needs a spa-centric concept.,Looka_Beauty Spa_20.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Wings are cliché. Typography is safe. Needs a unique visual identity.,Looka_Beauty Spa_21.png
+Looka,Beauty Spa,7,6,Kerning_Issue,Kerning needs refinement; consider a more unique typeface for greater impact.,Looka_Beauty Spa_09.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Icon is generic; typography is safe. Elevate concept and custom type.,Looka_Beauty Spa_23.png
+Looka,Beauty Spa,8,4,Generic_Cliché,Icon is generic; explore custom typography and a more unique visual metaphor.,Looka_Beauty Spa_22.png
+Looka,Beauty Spa,7,6,Generic_Cliché,Icon is generic. Typography is safe. Elevate concept and refine type.,Looka_Beauty Spa_07.png
+Looka,Beauty Spa,8,4,Generic_Cliché,"Typography is safe, but lacks unique visual identity for wellness.",Looka_Beauty Spa_13.png
+Looka,Beauty Spa,7,6,Kerning_Issue,Adjust spacing between 'LUNA' and the icon; consider custom typography.,Looka_Beauty Spa_12.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Icon is cliché. Typography is safe. Lacks unique brand personality.,Looka_Beauty Spa_06.png
+Looka,Beauty Spa,7,4,Kerning_Issue,Spacing between 'LUNA' and '&' is too wide; consider custom type.,Looka_Beauty Spa_10.png
+Looka,Beauty Spa,8,4,Generic_Cliché,Icon is generic. Typography is safe. Elevate concept and custom type.,Looka_Beauty Spa_04.png
+Looka,Beauty Spa,6,4,Generic_Cliché,Lips icon is cliché. Typography lacks sophistication. Improve spacing and font choice.,Looka_Beauty Spa_05.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Icon is generic; typography lacks personality. Elevate to match brand promise.,Looka_Beauty Spa_11.png
+Looka,Beauty Spa,7,6,Generic_Cliché,"Candle icon is cliché; explore unique, semantic visual metaphors for wellness.",Looka_Beauty Spa_29.png
+Looka,Beauty Spa,7,6,Kerning_Issue,"Kerning is inconsistent; consider a more refined, custom typeface.",Looka_Beauty Spa_15.png
+Looka,Beauty Spa,7,6,Generic_Cliché,"Mountains are a cliché; explore unique, relevant symbolism for wellness.",Looka_Beauty Spa_01.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Icon is generic; typography is safe but uninspired. Elevate the visual language.,Looka_Beauty Spa_14.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Lotus icon is overused; explore unique symbolism for 'Luna & Sol'.,Looka_Beauty Spa_28.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Generic serif and symbol. Lacks unique visual identity for wellness.,Looka_Beauty Spa_02.png
+Looka,Beauty Spa,7,4,Kerning_Issue,"Improve kerning between 'Luna' and '&', and 'Sol'. Consider custom typography.",Looka_Beauty Spa_16.png
+Looka,Beauty Spa,7,4,Generic_Cliché,Crown is cliché. Typography is safe. Elevate concept and refine font choices.,Looka_Beauty Spa_17.png
+Looka,Beauty Spa,8,5,Generic_Cliché,Typography is safe. Iconography is missing. Brand essence is not conveyed.,Looka_Beauty Spa_03.png
