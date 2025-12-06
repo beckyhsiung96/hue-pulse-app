@@ -68,24 +68,72 @@ if 'user_name' not in st.session_state: st.session_state['user_name'] = None
 # ================= CSS TWEAKS (MOBILE FRIENDLY) =================
 st.markdown("""
 <style>
-    /* Reduce top padding significantly for mobile */
+    /* Aggressive mobile spacing reset */
     .block-container { 
-        padding-top: 1rem !important; 
+        padding-top: 0.5rem !important; 
+        padding-bottom: 2rem !important; 
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        max-width: 100%; 
+    }
+    
+    /* Hide the huge default header decoration */
+    header { visibility: hidden; }
+    #MainMenu { visibility: hidden; }
+    footer { visibility: hidden; }
+    
+    /* Compact Text */
+    h3 { 
+        margin: 0 !important; 
+        padding: 0 !important; 
+        font-size: 1.1rem !important; 
+        text-align: center;
+    }
+    p { margin-bottom: 0.2rem !important; font-size: 0.9rem !important; }
+    
+    /* Remove gaps between elements */
+    .element-container { margin-bottom: 0.2rem !important; }
+    
+    /* TIGHTEN VERTICAL GAP (Mobile Stack) */
+    div[data-testid="column"] { 
+        padding: 0 !important;
+        margin-bottom: -5rem !important; /* Force overlap/tightness */
+        z-index: 1; /* Ensure distinct stacking context */
+    }
+    
+    /* Remove gap between columns in the flex container */
+    div[data-testid="column"] > div {
+        height: auto !important;
+    }
+    
+    /* Target the Horizontal Block that holds the columns */
+    div[class*="stHorizontalBlock"] {
+        gap: 0 !important;
+    }
+    
+    /* Remove padding from the components inside columns */
+    div.element-container {
+        margin-bottom: 0rem !important;
+        padding-bottom: 0rem !important;
+    }
+
+    /* Specifically target the click detector iframe/container if possible (it's usually an iframe in a div) */
+    iframe {
+        margin-bottom: 0 !important;
+        display: block !important;
+    }
+
+    /* Ensure images take full width but minimal height overhead */
+    img { 
+        margin-bottom: 0 !important; 
+        padding-bottom: 0 !important;
+    }
+    
+    /* Reduce top padding further */
+    .block-container { 
+        padding-top: 0 !important; 
         padding-bottom: 1rem !important; 
-        max-width: 900px; 
     }
-    /* Compact Header */
-    h1 { 
-        font-size: 1.5rem !important; 
-        margin-bottom: 0.2rem !important; 
-        margin-top: 0 !important;
-    }
-    /* Hide default streamlit hamburger spacing if possible */
-    header[data-testid="stHeader"] {
-        height: 2rem !important;
-    }
-    .stDeployButton {display:none;}
-    .zoom-hint { text-align: center; color: #888; font-size: 0.8rem; margin-top: 5px; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -126,13 +174,9 @@ def save_vote(winner_source, loser_source, industry):
     }
     df = pd.DataFrame(data)
     
-    # If file doesn't exist, write with header
     if not os.path.exists(RESULTS_FILE):
         df.to_csv(RESULTS_FILE, index=False)
     else:
-        # Check if existing file has 'User' column; if not, we might have a schema mismatch
-        # But for append mode with header=False, we assume structure matches. 
-        # Ideally, we'd handle migration, but we'll assume a fresh start or simple append.
         df.to_csv(RESULTS_FILE, mode='a', header=False, index=False)
     
     st.session_state['stats'][winner_source] += 1
@@ -142,28 +186,25 @@ def reset_session():
     st.session_state['seen_images'] = set()
     st.session_state['pair'] = None
     st.session_state['stats'] = {"Hue": 0, "Looka": 0, "Total": 0}
-    # Keep user name on reset? Yes.
     st.rerun()
 
 # ================= MAIN UI =================
 
 # 1. LOGIN GATE
 if not st.session_state['user_name']:
-    st.title("👋 Welcome!")
-    st.write("Please enter your name to start voting.")
-    
+    st.markdown("### 👋 Welcome!", unsafe_allow_html=True)
     with st.form("login_form"):
-        name_input = st.text_input("Name")
-        submitted = st.form_submit_button("Start Voting")
-        
-        if submitted and name_input.strip():
-            st.session_state['user_name'] = name_input.strip()
-            st.rerun()
-    
-    st.stop() # Halt here until logged in
+        name_input = st.text_input("Please enter your name:", placeholder="Name")
+        if st.form_submit_button("Start Voting"):
+            if name_input.strip():
+                st.session_state['user_name'] = name_input.strip()
+                st.rerun()
+    st.stop()
 
 # 2. VOTING APP
-st.title(f"Hi {st.session_state['user_name']}! Which Logo is Better?")
+# Header info - Condensed
+user = st.session_state['user_name']
+st.markdown(f"### Hi {user}, which logo is better?", unsafe_allow_html=True)
 
 if st.session_state['pair'] is None:
     st.session_state['pair'] = get_strict_pair()
@@ -171,10 +212,9 @@ if st.session_state['pair'] is None:
 if st.session_state['pair']:
     hue_path, looka_path, industry = st.session_state['pair']
     
-    # Context
+    # Context - Single Line
     ctx = BRAND_INFO.get(industry, {"name": "Unknown", "tagline": "", "industry": industry})
-    st.markdown(f"**Industry:** {ctx['industry']} &nbsp;|&nbsp; **Brand:** {ctx['name']} &nbsp;|&nbsp; **Tagline:** {ctx['tagline']}")    
-    st.write("---") 
+    st.markdown(f"<p style='text-align:center;'><b>{ctx['industry']}</b> | {ctx['name']} | <i>{ctx['tagline']}</i></p>", unsafe_allow_html=True)
 
     # Layout Randomizer
     if 'layout_order' not in st.session_state:
@@ -185,14 +225,14 @@ if st.session_state['pair']:
     idx_left = st.session_state['layout_order'][0]
     idx_right = st.session_state['layout_order'][1]
     
-    # Use smaller gap for mobile?
-    col1, col2 = st.columns(2, gap="small")
+    # Using columns (stacked on mobile)
+    col1, col2 = st.columns(2)
 
     # --- LEFT IMAGE ---
     with col1:
-        content_left = get_image_html(options[idx_left], "btn_left")
+        # Reduced width to 85% to fit better
+        content_left = get_image_html(options[idx_left], "btn_left").replace("width: 100%;", "width: 85%; margin: 0 auto;")
         clicked_left = click_detector(content_left)
-        
         if clicked_left == "btn_left":
             win = os.path.basename(options[idx_left]).split('_')[0]
             lose = os.path.basename(options[idx_right]).split('_')[0]
@@ -201,13 +241,11 @@ if st.session_state['pair']:
             st.session_state['layout_order'] = [0, 1] 
             random.shuffle(st.session_state['layout_order'])
             st.rerun()
-        st.markdown("<div class='zoom-hint'>👆 Click</div>", unsafe_allow_html=True)
 
     # --- RIGHT IMAGE ---
     with col2:
-        content_right = get_image_html(options[idx_right], "btn_right")
+        content_right = get_image_html(options[idx_right], "btn_right").replace("width: 100%;", "width: 85%; margin: 0 auto;")
         clicked_right = click_detector(content_right)
-        
         if clicked_right == "btn_right":
             win = os.path.basename(options[idx_right]).split('_')[0]
             lose = os.path.basename(options[idx_left]).split('_')[0]
@@ -216,9 +254,8 @@ if st.session_state['pair']:
             st.session_state['layout_order'] = [0, 1]
             random.shuffle(st.session_state['layout_order'])
             st.rerun()
-        st.markdown("<div class='zoom-hint'>👆 Click</div>", unsafe_allow_html=True)
-
-    # Progress Bar
+    
+    # Minimal Progress
     total_images = len(glob.glob(f"{INPUT_ROOT}/*/*.png"))
     if total_images > 0:
         st.progress(len(st.session_state['seen_images']) / total_images)
@@ -229,7 +266,7 @@ else:
     if st.button("Start Over"):
         reset_session()
 
-st.divider()
+st.write("") # Minimal spacer
 
 # ================= ADMIN DASHBOARD (RESTORED) =================
 with st.expander("📊 Admin Controls & Results"):
