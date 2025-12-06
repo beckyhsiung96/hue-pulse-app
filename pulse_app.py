@@ -324,56 +324,88 @@ else:
 st.write("") 
 
 # ================= ADMIN DASHBOARD =================
+# ================= ADMIN DASHBOARD =================
 with st.expander("📊 Admin Controls & Results"):
     
     query_params = st.query_params
     admin_mode = query_params.get("admin") == "true"
 
-    if admin_mode:
-        st.warning("⚠️ **Admin Note:** Clearing data from Google Sheets is safer done directly in the Sheet.")
-        st.markdown("[Open Google Sheet](https://docs.google.com/spreadsheets/u/0/) to manage rows.")
-        if st.button("🔄 Force Reload Data"):
-            st.cache_data.clear()
-            st.rerun()
-        st.divider()
-
-    # Metrics
     client, sheet_url = get_gsheet_client()
+    
     if client:
         df = get_data_as_df(client, sheet_url)
         
         if len(df) > 0:
-            hue_wins = len(df[df['Winner'] == 'Hue'])
-            total = len(df)
-            rate = int((hue_wins/total)*100) if total > 0 else 0
+            filtered_df = df.copy()
+
+            # --- ADMIN ONLY: USER FILTER ---
+            if admin_mode:
+                st.warning("⚠️ **Admin Mode Active**")
+                
+                # 1. Manage Data
+                st.markdown("[Open Google Sheet](https://docs.google.com/spreadsheets/u/0/) to manage rows.")
+                if st.button("🔄 Force Reload Data"):
+                    st.cache_data.clear()
+                    st.rerun()
+                
+                st.divider()
+                
+                # 2. Add Filter
+                if 'User' in df.columns:
+                    users = sorted(df['User'].astype(str).unique().tolist())
+                    
+                    # "Select All" Logic pattern
+                    container = st.container()
+                    all_selected = st.checkbox("Select All Users", value=True)
+                    
+                    if all_selected:
+                        selected_users = users
+                    else:
+                        selected_users = st.multiselect("Select Users", users, default=users)
+                    
+                    filtered_df = df[df['User'].isin(selected_users)]
+                    
+                    # Show filter stats
+                    st.caption(f"Showing {len(filtered_df)} votes from {len(selected_users)} users.")
+                    st.divider()
+
+            # --- METRICS (Using filtered_df) ---
+            hue_wins = len(filtered_df[filtered_df['Winner'] == 'Hue'])
+            total = len(filtered_df)
+            rate = (hue_wins/total)*100 if total > 0 else 0.0
             
             m1, m2, m3 = st.columns(3)
             m1.metric("Total Votes", total)
-            m2.metric("Hue Win Rate", f"{rate}%")
+            m2.metric("Hue Win Rate", f"{rate:.2f}%")
             looka_wins = total - hue_wins
             m3.metric("Hue vs Looka", f"{hue_wins} - {looka_wins}")
             
             st.write("---")
             
-            # Altair Grid
-            if {'Industry', 'Winner'}.issubset(df.columns):
-                matrix = df.groupby(['Industry', 'Winner']).size().unstack(fill_value=0)
-                if 'Hue' not in matrix.columns: matrix['Hue'] = 0
-                if 'Looka' not in matrix.columns: matrix['Looka'] = 0
-                
-                src_data = matrix.reset_index().melt('Industry', var_name='Source', value_name='Votes')
-                
-                chart = alt.Chart(src_data).mark_bar().encode(
-                    x=alt.X('Industry', axis=alt.Axis(labelAngle=0)),
-                    y='Votes',
-                    color=alt.Color('Source', scale=alt.Scale(domain=['Hue', 'Looka'], range=['#FF4B4B', '#333333'])),
-                    xOffset='Source'
-                ).properties(height=350)
-                
-                st.altair_chart(chart, use_container_width=True)
-                
-                if st.checkbox("Show Raw Data"):
-                    st.dataframe(df.sort_index(ascending=False))
+            # --- CHART (Using filtered_df) ---
+            if {'Industry', 'Winner'}.issubset(filtered_df.columns):
+                # Ensure we have data to plot
+                if len(filtered_df) == 0:
+                    st.warning("No data matches the current filters.")
+                else:
+                    matrix = filtered_df.groupby(['Industry', 'Winner']).size().unstack(fill_value=0)
+                    if 'Hue' not in matrix.columns: matrix['Hue'] = 0
+                    if 'Looka' not in matrix.columns: matrix['Looka'] = 0
+                    
+                    src_data = matrix.reset_index().melt('Industry', var_name='Source', value_name='Votes')
+                    
+                    chart = alt.Chart(src_data).mark_bar().encode(
+                        x=alt.X('Industry', axis=alt.Axis(labelAngle=0)),
+                        y='Votes',
+                        color=alt.Color('Source', scale=alt.Scale(domain=['Hue', 'Looka'], range=['#FF4B4B', '#333333'])),
+                        xOffset='Source',
+                        tooltip=['Industry', 'Source', 'Votes']
+                    ).properties(height=350)
+                    
+                    st.altair_chart(chart, use_container_width=True)
+                    
+                    if st.checkbox("Show Raw Data"):
+                        st.dataframe(filtered_df.sort_index(ascending=False))
             else:
                  st.warning("Data loaded, but columns 'Industry' or 'Winner' are missing.")
 
