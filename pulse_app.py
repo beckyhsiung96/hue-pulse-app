@@ -271,22 +271,26 @@ st.write("") # Minimal spacer
 # ================= ADMIN DASHBOARD (RESTORED) =================
 with st.expander("📊 Admin Controls & Results"):
     
-    # 1. DELETE BUTTON (HIDDEN FOR DEPLOYMENT)
-    # c1, c2 = st.columns([3, 1])
-    # with c1:
-    #     st.warning("⚠️ **Danger Zone:** This clears all voting history.")
-    # with c2:
-    #     if st.button("🗑️ Clear CSV Data", type="primary"):
-    #         if os.path.exists(RESULTS_FILE):
-    #             os.remove(RESULTS_FILE)
-    #             st.toast("History deleted!", icon="🗑️")
-    #             # Reset in-memory stats to match file
-    #             st.session_state['stats'] = {"Hue": 0, "Looka": 0, "Total": 0}
-    #             st.rerun()
-    #         else:
-    #             st.toast("No file to delete.", icon="🤷")
+    # 1. DELETE BUTTON (Secret Admin Mode)
+    # Access via URL: ?admin=true  (e.g., localhost:8501/?admin=true)
+    query_params = st.query_params
+    admin_mode = query_params.get("admin") == "true"
 
-    # st.divider()
+    if admin_mode:
+        c1, c2 = st.columns([3, 1])
+        with c1:
+            st.warning("⚠️ **Danger Zone:** This clears all voting history.")
+        with c2:
+            if st.button("🗑️ Clear CSV Data", type="primary"):
+                if os.path.exists(RESULTS_FILE):
+                    os.remove(RESULTS_FILE)
+                    st.toast("History deleted!", icon="🗑️")
+                    # Reset in-memory stats to match file
+                    st.session_state['stats'] = {"Hue": 0, "Looka": 0, "Total": 0}
+                    st.rerun()
+                else:
+                    st.toast("No file to delete.", icon="🤷")
+        st.divider()
 
     # 2. METRICS & CHART
     if os.path.exists(RESULTS_FILE):
