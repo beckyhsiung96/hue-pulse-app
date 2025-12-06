@@ -3,6 +3,7 @@ import glob
 import json
 import time
 import pandas as pd
+from datetime import datetime
 from PIL import Image
 import streamlit as st
 import google.generativeai as genai
@@ -37,11 +38,41 @@ def normalize_keys(data):
         return {k.lower().replace(" ", "_"): normalize_keys(v) for k, v in data.items()}
     return data
 
+def load_brand_data():
+    try:
+        with open("brand_data.json", "r") as f:
+            return json.load(f)
+    except:
+        return {}
+
+BRAND_DB = load_brand_data()
+
+def get_metadata(industry):
+    info = BRAND_DB.get(industry, {})
+    name = info.get("name", "")
+    tagline = info.get("tagline", "")
+    
+    # Name Length
+    L = len(name)
+    if L < 10: n_len = "Short"
+    elif L <= 20: n_len = "Medium"
+    else: n_len = "Long"
+    
+    return {
+        "Audit_Date": datetime.now().strftime("%Y-%m-%d"),
+        "Name_Length": n_len,
+        "Has_Tagline": "Yes" if tagline else "No"
+    }
+
 def flatten_response(source, industry, filename, json_data):
+    meta = get_metadata(industry)
     row = {
         "Source": source,
         "Industry": industry,
-        "Filename": filename
+        "Filename": filename,
+        "Audit_Date": meta["Audit_Date"],
+        "Name_Length": meta["Name_Length"],
+        "Has_Tagline": meta["Has_Tagline"]
     }
     
     # The 8 "Product Quality" Categories
@@ -100,7 +131,9 @@ def audit_logo_v4(image_path):
        - 5 = Balanced, professional spacing. 1 = Elements touching, off-center, messy.
        
     5. FONT (Typography):
-       - Is the text readable and styled correctly? 
+       - Is the text readable in size and styled correctly? 
+       - Is the font a good fit for this industry? 
+       - Is the name and tagline a good pairing?
        - 5 = Legible, good pairing. 1 = Unreadable, tiny tagline, clashing styles.
        
     6. COLOR (Palette):
@@ -180,5 +213,11 @@ if __name__ == "__main__":
 
     if all_data:
         df = pd.DataFrame(all_data)
-        df.to_csv(OUTPUT_CSV, index=False)
-        print(f"✅ V4 Audit Complete: {OUTPUT_CSV}")
+        
+        # APPEND MODE
+        if os.path.exists(OUTPUT_CSV):
+            df.to_csv(OUTPUT_CSV, mode='a', header=False, index=False)
+            print(f"✅ Appended {len(df)} rows to {OUTPUT_CSV}")
+        else:
+            df.to_csv(OUTPUT_CSV, index=False)
+            print(f"✅ Created {OUTPUT_CSV} with {len(df)} rows")

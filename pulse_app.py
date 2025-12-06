@@ -5,12 +5,19 @@ import pandas as pd
 import glob
 import base64
 import altair as alt
-# ⚠️ ENSURE YOU HAVE INSTALLED: pip install st-click-detector
+from datetime import datetime
+# Using direct gspread to avoid wrapper issues
+import gspread
+from google.oauth2.service_account import Credentials
 from st_click_detector import click_detector
 
 # ================= CONFIGURATION =================
 INPUT_ROOT = "output_slices"
-RESULTS_FILE = "human_pulse_results.csv"
+# We define scopes explicitly to ensure access
+SCOPES = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
+]
 
 BRAND_INFO = {
     "Coffee Shop": {"name": "River Roasters", "tagline": "", "industry": "Coffee Shop"},
@@ -137,6 +144,49 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# ================= GSHEETS CONNECTION (ROBUST) =================
+@st.cache_resource
+def get_gsheet_client():
+    # Robustly load secrets
+    try:
+        # Check if 'connections.gsheets' exists
+        if "connections" in st.secrets and "gsheets" in st.secrets["connections"]:
+            secrets_dict = dict(st.secrets["connections"]["gsheets"]) # Convert to standard dict
+            
+            # Construct credentials explicitly from dict
+            creds = Credentials.from_service_account_info(
+                secrets_dict, 
+                scopes=SCOPES
+            )
+            client = gspread.authorize(creds)
+            return client, secrets_dict.get("spreadsheet")
+        else:
+            st.error("❌ 'connections.gsheets' section missing in secrets.toml")
+            return None, None
+    except Exception as e:
+        st.error(f"❌ Auth Error: {str(e)}")
+        return None, None
+
+def get_data_as_df(client, sheet_url):
+    try:
+        sheet = client.open_by_url(sheet_url).sheet1
+        data = sheet.get_all_records()
+        return pd.DataFrame(data)
+    except Exception as e:
+        st.warning(f"Could not read GSheet: {e}")
+        return pd.DataFrame()
+
+def append_row_to_gsheet(client, sheet_url, row_data):
+    try:
+        sheet = client.open_by_url(sheet_url).sheet1
+        # Convert row_data values to list
+        row_values = list(row_data.values())
+        sheet.append_row(row_values)
+        return True
+    except Exception as e:
+        st.error(f"Save failed: {e}")
+        return False
+
 # ================= LOGIC =================
 def get_strict_pair():
     inventory = {}
@@ -164,23 +214,26 @@ def get_strict_pair():
     
     return [hue_img, looka_img, sel_ind]
 
-def save_vote(winner_source, loser_source, industry):
+def save_vote(winner_source, loser_source, industry, win_file, lose_file):
     user = st.session_state.get('user_name', 'Anonymous')
-    data = {
-        "User": [user],
-        "Winner": [winner_source], 
-        "Loser": [loser_source], 
-        "Industry": [industry]
+    
+    client, sheet_url = get_gsheet_client()
+    if not client: return
+
+    row = {
+        "User": user,
+        "Winner": winner_source,
+        "Loser": loser_source,
+        "Industry": industry,
+        "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "Winner logo file name": win_file,
+        "Loser logo file name": lose_file
     }
-    df = pd.DataFrame(data)
     
-    if not os.path.exists(RESULTS_FILE):
-        df.to_csv(RESULTS_FILE, index=False)
-    else:
-        df.to_csv(RESULTS_FILE, mode='a', header=False, index=False)
-    
-    st.session_state['stats'][winner_source] += 1
-    st.session_state['stats']['Total'] += 1
+    if append_row_to_gsheet(client, sheet_url, row):
+        st.session_state['stats'][winner_source] += 1
+        st.session_state['stats']['Total'] += 1
+        st.toast("Vote saved!", icon="✅")
 
 def reset_session():
     st.session_state['seen_images'] = set()
@@ -202,7 +255,6 @@ if not st.session_state['user_name']:
     st.stop()
 
 # 2. VOTING APP
-# Header info - Condensed
 user = st.session_state['user_name']
 st.markdown(f"### Hi {user}, which logo is better?", unsafe_allow_html=True)
 
@@ -212,7 +264,7 @@ if st.session_state['pair'] is None:
 if st.session_state['pair']:
     hue_path, looka_path, industry = st.session_state['pair']
     
-    # Context - Single Line
+    # Context
     ctx = BRAND_INFO.get(industry, {"name": "Unknown", "tagline": "", "industry": industry})
     st.markdown(f"<p style='text-align:center;'><b>{ctx['industry']}</b> | {ctx['name']} | <i>{ctx['tagline']}</i></p>", unsafe_allow_html=True)
 
@@ -225,18 +277,19 @@ if st.session_state['pair']:
     idx_left = st.session_state['layout_order'][0]
     idx_right = st.session_state['layout_order'][1]
     
-    # Using columns (stacked on mobile)
     col1, col2 = st.columns(2)
 
     # --- LEFT IMAGE ---
     with col1:
-        # Reduced width to 85% to fit better
         content_left = get_image_html(options[idx_left], "btn_left").replace("width: 100%;", "width: 85%; margin: 0 auto;")
         clicked_left = click_detector(content_left)
         if clicked_left == "btn_left":
-            win = os.path.basename(options[idx_left]).split('_')[0]
-            lose = os.path.basename(options[idx_right]).split('_')[0]
-            save_vote(win, lose, industry)
+            win_src = os.path.basename(options[idx_left]).split('_')[0]
+            lose_src = os.path.basename(options[idx_right]).split('_')[0]
+            win_file = os.path.basename(options[idx_left])
+            lose_file = os.path.basename(options[idx_right])
+            
+            save_vote(win_src, lose_src, industry, win_file, lose_file)
             st.session_state['pair'] = get_strict_pair()
             st.session_state['layout_order'] = [0, 1] 
             random.shuffle(st.session_state['layout_order'])
@@ -247,15 +300,17 @@ if st.session_state['pair']:
         content_right = get_image_html(options[idx_right], "btn_right").replace("width: 100%;", "width: 85%; margin: 0 auto;")
         clicked_right = click_detector(content_right)
         if clicked_right == "btn_right":
-            win = os.path.basename(options[idx_right]).split('_')[0]
-            lose = os.path.basename(options[idx_left]).split('_')[0]
-            save_vote(win, lose, industry)
+            win_src = os.path.basename(options[idx_right]).split('_')[0]
+            lose_src = os.path.basename(options[idx_left]).split('_')[0]
+            win_file = os.path.basename(options[idx_right])
+            lose_file = os.path.basename(options[idx_left])
+            
+            save_vote(win_src, lose_src, industry, win_file, lose_file)
             st.session_state['pair'] = get_strict_pair()
             st.session_state['layout_order'] = [0, 1]
             random.shuffle(st.session_state['layout_order'])
             st.rerun()
     
-    # Minimal Progress
     total_images = len(glob.glob(f"{INPUT_ROOT}/*/*.png"))
     if total_images > 0:
         st.progress(len(st.session_state['seen_images']) / total_images)
@@ -266,73 +321,61 @@ else:
     if st.button("Start Over"):
         reset_session()
 
-st.write("") # Minimal spacer
+st.write("") 
 
-# ================= ADMIN DASHBOARD (RESTORED) =================
+# ================= ADMIN DASHBOARD =================
 with st.expander("📊 Admin Controls & Results"):
     
-    # 1. DELETE BUTTON (Secret Admin Mode)
-    # Access via URL: ?admin=true  (e.g., localhost:8501/?admin=true)
     query_params = st.query_params
     admin_mode = query_params.get("admin") == "true"
 
     if admin_mode:
-        c1, c2 = st.columns([3, 1])
-        with c1:
-            st.warning("⚠️ **Danger Zone:** This clears all voting history.")
-        with c2:
-            if st.button("🗑️ Clear CSV Data", type="primary"):
-                if os.path.exists(RESULTS_FILE):
-                    os.remove(RESULTS_FILE)
-                    st.toast("History deleted!", icon="🗑️")
-                    # Reset in-memory stats to match file
-                    st.session_state['stats'] = {"Hue": 0, "Looka": 0, "Total": 0}
-                    st.rerun()
-                else:
-                    st.toast("No file to delete.", icon="🤷")
+        st.warning("⚠️ **Admin Note:** Clearing data from Google Sheets is safer done directly in the Sheet.")
+        st.markdown("[Open Google Sheet](https://docs.google.com/spreadsheets/u/0/) to manage rows.")
+        if st.button("🔄 Force Reload Data"):
+            st.cache_data.clear()
+            st.rerun()
         st.divider()
 
-    # 2. METRICS & CHART
-    if os.path.exists(RESULTS_FILE):
-        df = pd.read_csv(RESULTS_FILE)
+    # Metrics
+    client, sheet_url = get_gsheet_client()
+    if client:
+        df = get_data_as_df(client, sheet_url)
         
         if len(df) > 0:
-            # --- RESTORED METRICS SECTION ---
-            total_votes = len(df)
             hue_wins = len(df[df['Winner'] == 'Hue'])
-            looka_wins = len(df[df['Winner'] == 'Looka'])
-            hue_rate = int((hue_wins / total_votes) * 100) if total_votes > 0 else 0
+            total = len(df)
+            rate = int((hue_wins/total)*100) if total > 0 else 0
             
-            # The 3-Column Layout
             m1, m2, m3 = st.columns(3)
-            m1.metric("Total Votes", total_votes)
-            m2.metric("Hue Win Rate", f"{hue_rate}%", delta=f"{hue_rate - 50}% vs Parity")
+            m1.metric("Total Votes", total)
+            m2.metric("Hue Win Rate", f"{rate}%")
+            looka_wins = total - hue_wins
             m3.metric("Hue vs Looka", f"{hue_wins} - {looka_wins}")
-            # --------------------------------
             
             st.write("---")
             
-            # Altair Chart
-            matrix = df.groupby(['Industry', 'Winner']).size().unstack(fill_value=0)
-            if 'Hue' not in matrix.columns: matrix['Hue'] = 0
-            if 'Looka' not in matrix.columns: matrix['Looka'] = 0
-            
-            src_data = matrix.reset_index().melt('Industry', var_name='Source', value_name='Votes')
-            
-            chart = alt.Chart(src_data).mark_bar().encode(
-                x=alt.X('Industry', axis=alt.Axis(labelAngle=0)),
-                y='Votes',
-                color=alt.Color('Source', scale=alt.Scale(domain=['Hue', 'Looka'], range=['#FF4B4B', '#333333'])),
-                xOffset='Source'
-            ).properties(height=350)
-            
-            st.altair_chart(chart, use_container_width=True)
-            
-            # Show Raw Data with User column
-            if st.checkbox("Show Raw Data"):
-                st.dataframe(df)
+            # Altair Grid
+            if {'Industry', 'Winner'}.issubset(df.columns):
+                matrix = df.groupby(['Industry', 'Winner']).size().unstack(fill_value=0)
+                if 'Hue' not in matrix.columns: matrix['Hue'] = 0
+                if 'Looka' not in matrix.columns: matrix['Looka'] = 0
+                
+                src_data = matrix.reset_index().melt('Industry', var_name='Source', value_name='Votes')
+                
+                chart = alt.Chart(src_data).mark_bar().encode(
+                    x=alt.X('Industry', axis=alt.Axis(labelAngle=0)),
+                    y='Votes',
+                    color=alt.Color('Source', scale=alt.Scale(domain=['Hue', 'Looka'], range=['#FF4B4B', '#333333'])),
+                    xOffset='Source'
+                ).properties(height=350)
+                
+                st.altair_chart(chart, use_container_width=True)
+                
+                if st.checkbox("Show Raw Data"):
+                    st.dataframe(df.sort_index(ascending=False))
+            else:
+                 st.warning("Data loaded, but columns 'Industry' or 'Winner' are missing.")
 
         else:
             st.info("Waiting for votes...")
-    else:
-        st.info("No database found yet. Cast the first vote!")

@@ -5,3 +5,4 @@ st-click-detector
 openpyxl
 google-generativeai
 pillow
+st-gsheets-connection
