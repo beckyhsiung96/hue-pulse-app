@@ -16,7 +16,6 @@ BRAND_INFO = {
     "Coffee Shop": {"name": "River Roasters", "tagline": "", "industry": "Coffee Shop"},
     "Real Estate": {"name": "Oakwood Heritage Properties", "tagline": "Est. 1985", "industry": "Real Estate"},
     "Software": {"name": "Nexalis", "tagline": "", "industry": "Software Technology"},
-    "Tech": {"name": "Nexalis", "tagline": "", "industry": "Software Technology"}, 
     "Construction": {"name": "Ironclad Construction", "tagline": "", "industry": "Construction"},
     "Beauty Spa": {"name": "Luna & Sol", "tagline": "Holistic Wellness", "industry": "Beauty & Spa"}
 }
@@ -64,6 +63,31 @@ st.markdown("""
 if 'pair' not in st.session_state: st.session_state['pair'] = None
 if 'stats' not in st.session_state: st.session_state['stats'] = {"Hue": 0, "Looka": 0, "Total": 0}
 if 'seen_images' not in st.session_state: st.session_state['seen_images'] = set()
+if 'user_name' not in st.session_state: st.session_state['user_name'] = None
+
+# ================= CSS TWEAKS (MOBILE FRIENDLY) =================
+st.markdown("""
+<style>
+    /* Reduce top padding significantly for mobile */
+    .block-container { 
+        padding-top: 1rem !important; 
+        padding-bottom: 1rem !important; 
+        max-width: 900px; 
+    }
+    /* Compact Header */
+    h1 { 
+        font-size: 1.5rem !important; 
+        margin-bottom: 0.2rem !important; 
+        margin-top: 0 !important;
+    }
+    /* Hide default streamlit hamburger spacing if possible */
+    header[data-testid="stHeader"] {
+        height: 2rem !important;
+    }
+    .stDeployButton {display:none;}
+    .zoom-hint { text-align: center; color: #888; font-size: 0.8rem; margin-top: 5px; }
+</style>
+""", unsafe_allow_html=True)
 
 # ================= LOGIC =================
 def get_strict_pair():
@@ -93,12 +117,22 @@ def get_strict_pair():
     return [hue_img, looka_img, sel_ind]
 
 def save_vote(winner_source, loser_source, industry):
-    data = {"Winner": [winner_source], "Loser": [loser_source], "Industry": [industry]}
+    user = st.session_state.get('user_name', 'Anonymous')
+    data = {
+        "User": [user],
+        "Winner": [winner_source], 
+        "Loser": [loser_source], 
+        "Industry": [industry]
+    }
     df = pd.DataFrame(data)
     
+    # If file doesn't exist, write with header
     if not os.path.exists(RESULTS_FILE):
         df.to_csv(RESULTS_FILE, index=False)
     else:
+        # Check if existing file has 'User' column; if not, we might have a schema mismatch
+        # But for append mode with header=False, we assume structure matches. 
+        # Ideally, we'd handle migration, but we'll assume a fresh start or simple append.
         df.to_csv(RESULTS_FILE, mode='a', header=False, index=False)
     
     st.session_state['stats'][winner_source] += 1
@@ -108,10 +142,28 @@ def reset_session():
     st.session_state['seen_images'] = set()
     st.session_state['pair'] = None
     st.session_state['stats'] = {"Hue": 0, "Looka": 0, "Total": 0}
+    # Keep user name on reset? Yes.
     st.rerun()
 
 # ================= MAIN UI =================
-st.title("Which Logo Would You Buy?")
+
+# 1. LOGIN GATE
+if not st.session_state['user_name']:
+    st.title("👋 Welcome!")
+    st.write("Please enter your name to start voting.")
+    
+    with st.form("login_form"):
+        name_input = st.text_input("Name")
+        submitted = st.form_submit_button("Start Voting")
+        
+        if submitted and name_input.strip():
+            st.session_state['user_name'] = name_input.strip()
+            st.rerun()
+    
+    st.stop() # Halt here until logged in
+
+# 2. VOTING APP
+st.title(f"Hi {st.session_state['user_name']}! Which Logo is Better?")
 
 if st.session_state['pair'] is None:
     st.session_state['pair'] = get_strict_pair()
@@ -133,7 +185,8 @@ if st.session_state['pair']:
     idx_left = st.session_state['layout_order'][0]
     idx_right = st.session_state['layout_order'][1]
     
-    col1, col2 = st.columns(2, gap="large")
+    # Use smaller gap for mobile?
+    col1, col2 = st.columns(2, gap="small")
 
     # --- LEFT IMAGE ---
     with col1:
@@ -148,7 +201,7 @@ if st.session_state['pair']:
             st.session_state['layout_order'] = [0, 1] 
             random.shuffle(st.session_state['layout_order'])
             st.rerun()
-        st.markdown("<div class='zoom-hint'>👆 Click to select</div>", unsafe_allow_html=True)
+        st.markdown("<div class='zoom-hint'>👆 Click</div>", unsafe_allow_html=True)
 
     # --- RIGHT IMAGE ---
     with col2:
@@ -163,7 +216,7 @@ if st.session_state['pair']:
             st.session_state['layout_order'] = [0, 1]
             random.shuffle(st.session_state['layout_order'])
             st.rerun()
-        st.markdown("<div class='zoom-hint'>👆 Click to select</div>", unsafe_allow_html=True)
+        st.markdown("<div class='zoom-hint'>👆 Click</div>", unsafe_allow_html=True)
 
     # Progress Bar
     total_images = len(glob.glob(f"{INPUT_ROOT}/*/*.png"))
@@ -233,6 +286,11 @@ with st.expander("📊 Admin Controls & Results"):
             ).properties(height=350)
             
             st.altair_chart(chart, use_container_width=True)
+            
+            # Show Raw Data with User column
+            if st.checkbox("Show Raw Data"):
+                st.dataframe(df)
+
         else:
             st.info("Waiting for votes...")
     else:
