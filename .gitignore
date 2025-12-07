@@ -13,6 +13,7 @@
 
 # 4. Allow content inside whitelisted directories
 !output_slices/**
+
 !.streamlit/config.toml
 
 # 5. Explicitly IGNORE secrets and junk (overrides whitelist if needed)
