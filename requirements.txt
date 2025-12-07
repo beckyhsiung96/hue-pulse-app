@@ -6,3 +6,7 @@ openpyxl
 google-generativeai
 pillow
 st-gsheets-connection
+st-files-connection
+streamlit-gsheets
+gspread
+google-auth
