@@ -1,0 +1,12 @@
+streamlit
+pandas
+altair
+st-click-detector
+openpyxl
+google-generativeai
+pillow
+st-gsheets-connection
+st-files-connection
+
+gspread
+google-auth
